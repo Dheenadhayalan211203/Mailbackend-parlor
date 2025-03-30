@@ -36,12 +36,7 @@ app.post('/send-mail', async (req, res) => {
         text: `from: ${email} \n\n` +message +`\n\n Mobile Number : ${mobileno},
     };
 
-    const reply = {
-        from: process.env.RECIPIENT_EMAIL,
-        to:  email,
-        subject: `Message Recived `,
-        text: `Hi ${name} , Thank you for reaching out to us. Your message has been received, and our team will get in touch with you shortly. \n\n Best regards , \n Team HemazBridal Studio `,
-    };
+    
 
     try {
         // Send email
