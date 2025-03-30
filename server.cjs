@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 
 // Route to handle form submission
 app.post('/send-mail', async (req, res) => {
-    const { name, email, subject, message } = req.body;
+    const { name, email, mobileno, subject, message } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !mobileno) {
         return res.status(400).json({ success: false, message: 'All fields are required.' });
     }
 
@@ -33,7 +33,7 @@ app.post('/send-mail', async (req, res) => {
         from: email,
         to: process.env.RECIPIENT_EMAIL || 'recipient-email@gmail.com', // Email to receive messages
         subject: `Message from ${name} regarding : ${subject}`,
-        text: `from: ${email} \n\n` +message,
+        text: `from: ${email} \n\n` +message +`\n\n Mobile Number : ${mobileno},
     };
 
     const reply = {
