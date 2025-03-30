@@ -42,7 +42,7 @@ app.post('/send-mail', async (req, res) => {
         // Send email
         await transporter.sendMail(mailOptions);
         res.send(`
-            <!DOCTYPE html>
+           
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -64,7 +64,7 @@ app.post('/send-mail', async (req, res) => {
     } catch (error) {
         console.error('Error sending email:', error);
         res.send(`
-            <!DOCTYPE html>
+            
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
